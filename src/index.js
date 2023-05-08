@@ -2,40 +2,43 @@
  * This class is just a facade for your implementation, the tests below are using the `World` class only.
  * Feel free to add the data and behavior, but don't change the public interface.
  */
+import {PowerPlant} from "./model/PowerPlant.js";
+import {Household} from "./model/Household.js";
 
 
 export class World {
-  constructor() {}
+    constructor() {
+    }
 
-  createPowerPlant() {
-    throw new Error("Not Implemented");
-  }
+    createPowerPlant() {
+        return new PowerPlant();
+    }
 
-  createHousehold() {
-    throw new Error("Not Implemented");
-  }
+    createHousehold() {
+        return new Household();
+    }
 
-  connectHouseholdToPowerPlant(household, powerPlant) {
-    throw new Error("Not Implemented");
-  }
+    connectHouseholdToPowerPlant(household, powerPlant) {
+        household.connectTo(powerPlant);
+    }
 
-  connectHouseholdToHousehold(household1, household2) {
-    throw new Error("Not Implemented");
-  }
+    connectHouseholdToHousehold(household1, household2) {
+        household1.connectTo(household2);
+    }
 
-  disconnectHouseholdFromPowerPlant(household, powerPlant) {
-    throw new Error("Not Implemented");
-  }
+    disconnectHouseholdFromPowerPlant(household, powerPlant) {
+        household.disconnectFrom(powerPlant);
+    }
 
-  killPowerPlant(powerPlant) {
-    throw new Error("Not Implemented");
-  }
+    killPowerPlant(powerPlant) {
+        powerPlant.killPowerPlant();
+    }
 
-  repairPowerPlant(powerPlant) {
-    throw new Error("Not Implemented");
-  }
+    repairPowerPlant(powerPlant) {
+        powerPlant.repairPowerPlant();
+    }
 
-  householdHasEletricity(household) {
-    throw new Error("Not Implemented");
-  }
+    householdHasEletricity(household) {
+       return household.getElectricity();
+    }
 }
